@@ -1,0 +1,5 @@
+[revset-aliases]
+'overview'  = '@ | trunk() | ancestors(remote_bookmarks().., 2)'
+'mywork'    = 'mine() & mutable()'
+'recent'    = 'committer_date(after:"1 week ago")'
+'stack'     = 'trunk()..@'

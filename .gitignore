@@ -2,9 +2,36 @@
 
 # Local backups
 *.bak
+*.bak2
 *.bak-*
 *.bak.*
+*.save
+*.swp
 *.rejected-*
 
 # Machine-local state, not config
 omniwm/runtime-state.json
+zed/prompts/
+node_modules/
+
+# Secrets: never track these, they are recreated by hand per machine
+secrets.env
+*creds.env
+.env
+.env.*
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+
+# My global gitignore drops settings.json everywhere; this one is real config
+!zed/settings.json
+
+# History and caches
+.zsh_history
+.bash_history
+.python_history
+.node_repl_history
+.viminfo
+.lesshst
+.zcompdump*
