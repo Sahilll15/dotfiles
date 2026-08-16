@@ -1,0 +1,126 @@
+### Visual configuration
+# theme = Tomorrow Night Bright
+# theme = tokyonight
+# was: theme = Apple System Colors
+# Previous theme (colorblind-safe, auto light/dark) — kept for reference:
+# theme = light:GitHub Light Colorblind,dark:GitHub Dark Colorblind
+window-theme = system
+macos-titlebar-style = tabs
+unfocused-split-opacity = 0.6
+# font-family = Square Sans Mono
+# font-family = Menlo Regular
+# font-family = Inconsolata Regular Regular
+# Nerd Font: adds powerline + icon glyphs for powerlevel10k and the Claude Code UI.
+font-family = JetBrainsMono Nerd Font
+
+### Black + Orange theme (custom, colorblind-safe) — added 2026-07-02
+# Near-black canvas with amber/orange accents. Palette is Gruvbox Dark Hard
+# (CVD-friendly: warm red vs olive green stay distinguishable), with the
+# background pushed toward black and the cursor set to orange. This replaces
+# the auto light/dark theme above; re-enable that line to revert.
+background = #0d0f10
+foreground = #ebdbb2
+cursor-color = #fe8019
+cursor-text = #0d0f10
+selection-background = #3c3836
+selection-foreground = #fbf1c7
+bold-is-bright = true
+# padding blends into the cell background at window edges (no grey strip)
+window-padding-color = extend
+# split divider in a theme-matched warm grey instead of default
+split-divider-color = #3c3836
+palette = 0=#1d2021
+palette = 1=#cc241d
+palette = 2=#98971a
+palette = 3=#d79921
+palette = 4=#458588
+palette = 5=#b16286
+palette = 6=#689d6a
+palette = 7=#a89984
+palette = 8=#665c54
+palette = 9=#fb4934
+palette = 10=#b8bb26
+palette = 11=#fabd2f
+palette = 12=#83a598
+palette = 13=#d3869b
+palette = 14=#8ec07c
+palette = 15=#fbf1c7
+
+# breathing room around text (readability) — added during setup
+window-padding-x = 10
+window-padding-y = 8
+window-padding-balance = true
+
+copy-on-select = clipboard
+focus-follows-mouse = true
+font-thicken = true
+# font-feature = -liga
+macos-non-native-fullscreen = true
+mouse-hide-while-typing = true
+
+# scrollback-limit in bytes, roughly 125,000 lines
+scrollback-limit = 100000000
+
+shell-integration = zsh
+shell-integration-features = no-cursor
+# note: see zsh/.zshrc "ghostty integration"
+# Titlebar/tab shows "folder (git branch)", always visible while scrolling.
+# The title is set by a precmd hook in ~/.zshrc ("Terminal title" section) —
+# do NOT set `title = ...` here, a static title would override the dynamic one.
+
+### Keybindings
+# super==cmd, alt==opt
+# move between tabs is cmd+alt+arrow
+keybind = super+alt+left=previous_tab
+keybind = super+alt+right=next_tab
+# move between panes is cmd+arrow
+keybind = super+left=goto_split:previous
+keybind = super+right=goto_split:next
+# cmd+s sends :w<enter> - so cmd-s works in vim in terminal
+keybind = super+s=text:\x1b:w\n
+
+# TODO: search scrollback hack
+
+### Misc settings
+desktop-notifications = false
+quit-after-last-window-closed = true
+window-new-tab-position = end
+window-save-state = never
+
+# window-colorspace = srgb
+window-colorspace = display-p3
+keybind = shift+enter=text:\n
+
+background-opacity = 1.00
+
+### Eye candy: animated cursor trail (added 2026-07-02)
+# Comet-style cursor trail (github.com/sahaj-b/ghostty-cursor-shaders). The trail
+# color follows the cursor color (orange #fe8019 above), matching the warm theme.
+# Tune DURATION / MAX_TRAIL_LENGTH at the top of the .glsl. Delete these two lines
+# to disable. `always` keeps it animating even when the window is unfocused.
+custom-shader = shaders/cursor_tail.glsl
+# Ripple/pulse when the cursor changes shape (block <-> line, e.g. entering vim
+# insert mode). Stacks with the trail above (the repo's "warp + ripple" combo).
+custom-shader = shaders/ripple_cursor.glsl
+custom-shader-animation = always
+
+### Workflow / power-user additions (added during setup)
+
+# Left Option acts as Alt/Meta so Claude Code Option shortcuts (e.g. Option+P
+# to switch model) work. Right Option still types special characters (é, #, …).
+# Set to = false if special-character typing ever feels off.
+macos-option-as-alt = left
+
+# New tabs/splits open in the current pane's directory (kills repetitive cd).
+window-inherit-working-directory = true
+
+# Hide the dimensions overlay when resizing splits/windows (less visual noise).
+resize-overlay = never
+
+# Quake-style drop-down terminal from anywhere: press Ctrl+` to toggle.
+# The global bind needs Ghostty granted Accessibility permission in
+# System Settings > Privacy & Security > Accessibility (one-time).
+keybind = global:ctrl+grave_accent=toggle_quick_terminal
+
+# Rebalance all splits to equal size.
+keybind = super+ctrl+shift+equal=equalize_splits

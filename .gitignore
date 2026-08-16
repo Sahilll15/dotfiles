@@ -1,0 +1,10 @@
+.DS_Store
+
+# Local backups
+*.bak
+*.bak-*
+*.bak.*
+*.rejected-*
+
+# Machine-local state, not config
+omniwm/runtime-state.json
