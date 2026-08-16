@@ -1,0 +1,33 @@
+UI-React/.cursor/
+.cursor/
+/Users/sahil.chalke/Desktop/contentstack-code-repos/ui-automation-framework/.cursor
+.claude/
+**/auto-draft-skill/
+**/visual-builder-auto-draft/
+claude.md
+CLAUDE.md
+
+# Local-only VB Cursor skill (not committed)
+**/vb-autodraft-ui-react-parity/
+
+# Editor / IDE local settings (any path)
+settings.json
+
+# Local-only cleanup script (not committed)
+**/scripts/targeted-cleanup.ts
+graphify-out/
+.graphifyignore
+
+# Local env files + editor backups (never commit; may contain secrets)
+.env.local
+.env.local.*
+*.bak
+
+# secrets — never commit these anywhere
+.env
+.env.*
+!.env.example
+!.env.sample
+secrets.env
+*.pem
+*.key

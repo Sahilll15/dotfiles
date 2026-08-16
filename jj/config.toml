@@ -1,0 +1,23 @@
+#:schema https://jj-vcs.github.io/jj/latest/config-schema.json
+
+[user]
+name = "sahil"
+email = "sahil.chalke@contentstack.com"
+
+[ui]
+ignore-working-copy = true
+diff.format = "git"
+merge-editor = ":builtin"
+
+[git]
+push-branch-prefix = "sahil/"
+
+[aliases]
+sync       = ["git", "fetch", "--all-remotes"]
+evolve     = ["rebase", "--skip-empty", "-d", "main"]
+rebase-all = ["rebase", "-s", "all:roots(trunk()..mutable())", "-d", "trunk()"]
+
+[revset-aliases]
+"immutable_heads()" = "none()"
+"p(n)"              = "p(@, n)"
+"p(r, n)"           = "roots(r | ancestors(r-, n))"
